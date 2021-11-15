@@ -1,0 +1,29 @@
+.featured-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto;
+  overflow: scroll;
+  display: flex;
+  flex-direction: row;
+}
+.featured-list li {
+  width: calc(calc(100vw - 20px) / 3);
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0 20px 0 0;
+}
+.featured-list li img {
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .featured-list li {
+    width: calc(calc(100vw - 20px) / 8);
+    margin: 0 10px;
+  }
+  .featured-list {
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,183 @@
+.tabs span {
+  padding: 20px;
+  display: inline-block;
+}
+.tabs {
+  color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.tabs span.active {
+  font-weight: bold;
+}
+.showBanner {
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.showBanner.mobile {
+  background-image: none !important;
+}
+.showMeta {
+  display: flex;
+  flex-direction: column;
+}
+.show-poster {
+  display: flex;
+  flex: 1;
+  margin: auto;
+}
+.showContainer {
+  margin: 0 10px;
+}
+.show-info {
+  color: #fff;
+}
+.episode-list {
+  padding: 0 10px;
+}
+.episode-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.episode-list-item {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  width: calc(100%);
+  margin: 10px 0;
+  cursor: pointer;
+}
+.episode-list-item .thumbnail-wrapper {
+  margin: 0 0 10px 0;
+  position: relative;
+}
+.episode-list-item .thumbnail-wrapper img {
+  border-radius: 8px;
+  width: 100%;
+}
+.episode-title {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.episode-rating {
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  color: #000;
+  background: #fff;
+  padding: 2px;
+  font-size: 12px;
+}
+.episode-list-item .episode-count,
+.episode-list-item .episode-languages {
+  font-size: 13px;
+  text-transform: capitalize;
+}
+.episode-list-item .episode-languages {
+  color: #ccc;
+}
+.episode-list-item .title {
+  font-size: 13px;
+}
+.start-watching {
+  display: block;
+  background-color: #00a5df;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.rating {
+  background-color: #fff;
+  color: #410099;
+  padding: 2.5px;
+}
+.tabs {
+  color: #fff;
+}
+.show-extra-info {
+  font-size: 12px;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.show-extra-info span {
+  line-height: 1;
+  padding: 4px;
+}
+.show-info .title h3 {
+  font-size: 20px;
+  line-height: 22px;
+  margin: 10px 0;
+}
+.excerpt {
+  padding: 16px 0;
+}
+.button-wrapper {
+  display: flex;
+}
+.add-to-watch-list {
+  color: #fff;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 17px;
+}
+@media (min-width: 500px) {
+  .episode-list-container {
+    flex-direction: row;
+  }
+  .episode-list-item {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+}
+@media (min-width: 1024px) {
+  .episode-list {
+    padding: 0 50px;
+  }
+  main {
+    margin: 110px 0 0 0 !important;
+  }
+  .showBanner {
+    padding: 10% 0 0 0;
+  }
+  .showContainer {
+    margin: 0;
+  }
+  .show-info .title h3 {
+    font-size: 40px;
+    line-height: 42px;
+  }
+  .episode-list-container {
+    flex-direction: row;
+    padding: 40px 0;
+  }
+  .episode-list-item {
+    width: 15%;
+  }
+  .show-poster {
+    margin: 0 20px 0 0;
+  }
+  .start-watching {
+    width: auto;
+  }
+  .showMeta {
+    display: flex;
+    flex-direction: row;
+    padding: 50px;
+  }
+  .show-info {
+    max-width: 660px;
+    align-self: flex-end;
+  }
+}

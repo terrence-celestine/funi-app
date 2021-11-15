@@ -1,0 +1,14 @@
+#top-bar {
+  background-color: #410099;
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  line-height: 15px;
+  padding: 5px 0;
+}
+
+@media (min-width: 1024px) {
+  #top-bar {
+    padding: 15px 0;
+  }
+}

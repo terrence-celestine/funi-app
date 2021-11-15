@@ -1,0 +1,10 @@
+.show-category-container {
+  padding: 0 20px;
+  overflow: scroll;
+  margin: 0 0 20px 0;
+}
+@media (min-width: 1024px) {
+  .show-category-container {
+    overflow: hidden;
+  }
+}

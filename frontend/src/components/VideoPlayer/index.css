@@ -1,0 +1,111 @@
+video {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+}
+.videoWrapper {
+  position: fixed;
+  z-index: 9999999;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+.go-back {
+  padding: 0 10px;
+}
+#infoOverlay .timer {
+  font-size: 14px;
+}
+#infoOverlay {
+  background: linear-gradient(#181221, rgba(24, 18, 33, 0.1) 70%);
+  color: #fff;
+  opacity: 0;
+  position: fixed;
+  z-index: 9999;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+#infoOverlay .bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#progressBar {
+  width: calc(100% - 20px);
+  appearance: none;
+  height: 10px;
+  margin: 10px;
+}
+#progressBar::-webkit-progress-bar {
+  background: #fff;
+  border-radius: 10px;
+}
+#progressBar::-webkit-progress-value {
+  background: #cc3363;
+  border-radius: 10px;
+}
+#progressBar::-moz-progress-bar {
+  background: #cc3363;
+  border-radius: 10px;
+}
+#infoOverlay .controls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#infoOverlay .left,
+#infoOverlay .middle,
+#infoOverlay .right {
+  display: flex;
+  flex-direction: row;
+}
+#infoOverlay .left > div,
+#infoOverlay .middle > div,
+#infoOverlay .right > div {
+  margin: 0 10px;
+  display: flex;
+  align-self: center;
+}
+#infoOverlay.showOverlay {
+  opacity: 1;
+}
+#infoOverlay img {
+  color: #fff;
+  height: 24px;
+}
+#infoOverlay .bottom {
+  padding: 0 0 20px 0;
+}
+#infoOverlay .top .top-container {
+  display: flex;
+  flex-direction: row;
+}
+#infoOverlay .top .meta {
+  display: flex;
+  flex-direction: column;
+}
+.custom-volume-bar {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+.custom-volume-bar #volume-bar {
+  display: none;
+}
+.custom-volume-bar.show-volume #volume-bar {
+  display: inline-block;
+}

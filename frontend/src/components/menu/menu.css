@@ -1,0 +1,82 @@
+#menu {
+  padding: 20px;
+  background-color: #fff;
+  height: 25px;
+}
+ul.nav {
+  display: none;
+  margin: 0;
+  vertical-align: middle;
+  height: 25px;
+  overflow: hidden;
+  width: 100%;
+}
+ul.nav a {
+  padding: 0 20px;
+  text-decoration: none;
+}
+ul.nav .aligned-right {
+  float: right;
+}
+ul.nav li {
+  display: inline-block;
+  vertical-align: top;
+}
+.logo {
+  display: inline-block;
+  vertical-align: top;
+}
+#menu {
+  display: flex;
+  transition: height 0.3s ease-in-out;
+}
+#menu.show-menu {
+  height: 250px;
+  overflow: visible;
+}
+#menu.show-menu ul.nav {
+  overflow: visible;
+}
+.parent li {
+  font-size: 14px;
+}
+.parent ul {
+  margin: 0 0 0 20px;
+  padding: 0;
+}
+.parent ul li {
+  display: block;
+  width: 100%;
+  vertical-align: top;
+}
+ul.nav li.parent li a {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+ul.nav a.premium-pass {
+  display: block;
+  background: #ffc72c;
+  color: #222222;
+  font-weight: bold;
+  border-radius: 5px;
+}
+.logo img {
+  display: inline-block;
+  vertical-align: middle;
+}
+#menu a.trigger img {
+  height: 100%;
+  margin: 0 10px 0 0;
+}
+ul.nav li.parent a {
+  font-weight: bold;
+}
+@media (min-width: 1024px) {
+  #menu a.trigger {
+    display: none;
+  }
+  #menu ul.nav {
+    display: block;
+  }
+}
