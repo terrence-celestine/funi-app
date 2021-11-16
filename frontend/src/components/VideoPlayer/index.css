@@ -18,6 +18,8 @@ video {
 }
 .go-back {
   padding: 0 10px;
+  display: flex;
+  align-items: center;
 }
 #infoOverlay .timer {
   font-size: 14px;
@@ -40,9 +42,7 @@ video {
   flex-direction: column;
 }
 #infoOverlay .bottom {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  position: relative;
 }
 #progressBar {
   width: calc(100% - 20px);
@@ -50,16 +50,28 @@ video {
   height: 10px;
   margin: 10px;
 }
+#volume-bar {
+  appearance: none;
+  height: 10px;
+}
+#volume-bar::-webkit-progress-bar {
+  background: #fff;
+  border-radius: 10px;
+}
+#volume-bar::-webkit-progress-value {
+  background: #747c92;
+  border-radius: 10px;
+}
 #progressBar::-webkit-progress-bar {
   background: #fff;
   border-radius: 10px;
 }
 #progressBar::-webkit-progress-value {
-  background: #cc3363;
+  background: #d8315b;
   border-radius: 10px;
 }
 #progressBar::-moz-progress-bar {
-  background: #cc3363;
+  background: #d8315b;
   border-radius: 10px;
 }
 #infoOverlay .controls {
@@ -83,11 +95,23 @@ video {
 #infoOverlay.showOverlay {
   opacity: 1;
 }
+#infoOverlay .playCentered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#infoOverlay .playCentered img {
+  height: auto;
+}
 #infoOverlay img {
   color: #fff;
   height: 24px;
+  display: flex;
 }
-#infoOverlay .bottom {
+#infoOverlay .bottom .controls-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 0 0 20px 0;
 }
 #infoOverlay .top .top-container {
@@ -97,6 +121,32 @@ video {
 #infoOverlay .top .meta {
   display: flex;
   flex-direction: column;
+}
+#infoOverlay #skip-intro {
+  position: absolute;
+  right: 0;
+  top: -50px;
+  right: 50px;
+  font-size: 20px;
+  line-height: 22px;
+  padding: 10px;
+  opacity: 0;
+  transition: 0.3s all ease-in-out;
+  text-transform: uppercase;
+  border: 2px solid #ccc;
+  background: none;
+  color: #fff;
+}
+#settingsBox {
+  display: none;
+}
+#settingsBox.show {
+  display: block;
+  position: absolute;
+  top: -50px;
+}
+#infoOverlay #skip-intro.show-btn {
+  opacity: 1;
 }
 .custom-volume-bar {
   display: flex;
@@ -108,4 +158,24 @@ video {
 }
 .custom-volume-bar.show-volume #volume-bar {
   display: inline-block;
+}
+.meta h2 {
+  margin: 0;
+  font-size: 32px;
+  line-height: 34px;
+}
+.meta .title {
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 0;
+}
+#infoOverlay .top {
+  padding: 20px 0;
+}
+.meta .rating {
+  background: #fff;
+  color: #000;
+  align-self: flex-start;
+  border-radius: 5px;
+  padding: 2px 10px;
 }
