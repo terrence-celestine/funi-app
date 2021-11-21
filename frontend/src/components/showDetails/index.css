@@ -56,13 +56,13 @@
   border-radius: 8px;
   width: 100%;
 }
-.episode-title {
+.episode-list-item .episode-title {
   width: 250px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.episode-rating {
+.episode-list-item .episode-rating {
   position: absolute;
   bottom: 15px;
   right: 10px;

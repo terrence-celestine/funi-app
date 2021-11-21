@@ -41,7 +41,7 @@ ul li .content p {
   line-height: 15px;
 }
 
-li.logged-out img {
+li.slide img {
   width: 100%;
 }
 
@@ -49,7 +49,7 @@ li.logged-out img {
   #home-slider ul li {
     display: flex;
   }
-  li.logged-out picture {
+  li.slide picture {
     display: flex;
     flex: 1;
     order: 2;

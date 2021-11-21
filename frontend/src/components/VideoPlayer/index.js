@@ -43,7 +43,7 @@ const VideoPlayer = () => {
           }
         }
       });
-  }, [isLoading]);
+  }, [isLoading, episodeID, showHandle]);
 
   const updateAudioTrack = (lang) => {
     const tracks = videoRef.current.textTracks;
@@ -130,6 +130,7 @@ const VideoPlayer = () => {
       lastSeenShows[showHandle] = {
         episode: episodeID,
         progress: videoRef.current.currentTime,
+        duration: videoRef.current.duration,
       };
       localStorage.setItem("episode_progress", JSON.stringify(lastSeenShows));
     } else {
@@ -137,6 +138,7 @@ const VideoPlayer = () => {
         [showHandle]: {
           episode: episodeID,
           progress: videoRef.current.currentTime,
+          duration: videoRef.current.duration,
         },
       };
       localStorage.setItem("episode_progress", JSON.stringify(newShow));

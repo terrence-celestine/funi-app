@@ -10,12 +10,11 @@ import VideoPlayer from "./components/VideoPlayer";
 import Footer from "./components/Footer";
 
 function App() {
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(true);
 
   useEffect(() => {
-    console.log("fetch user");
     setUser(true);
-  }, []);
+  }, [user]);
   return (
     <div className="App">
       <>
@@ -25,7 +24,7 @@ function App() {
         </header>
         <main>
           <Routes>
-            <Route index element={<Home />}></Route>
+            <Route index element={<Home user={user} />}></Route>
             <Route path="shows">
               <Route path=":showHandle" element={<ShowDetails />}></Route>
               <Route index element={<ViewShows />}></Route>

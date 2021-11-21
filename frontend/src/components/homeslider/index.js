@@ -7,20 +7,28 @@ const HomeSlider = ({ activeUser }) => {
     <div id="home-slider">
       <ul>
         {activeUser ? (
-          <li>
+          <li className="slide">
+            <picture>
+              <source media="(max-width: 799px)" srcSet={bannerDefaultMobile} />
+              <source media="(min-width: 800px)" srcSet={loggedOutBG} />
+              <img
+                src={loggedOutBG}
+                alt="Chris standing up holding his daughter Elva"
+              />
+            </picture>
             <div className="content">
               <p>
-                With Quirks on the line, their fight is our future. In theaters
-                now, subbed &amp; dubbed.
+                Watch over 15,000 hours of anime anywhere, ad-free. Only thing
+                missing are the snacks.
               </p>
-              <button>Buy Tickets</button>
+              <button>Start Watching</button>
             </div>
           </li>
         ) : (
-          <li className="logged-out">
+          <li className="slide">
             <picture>
-              <source media="(max-width: 799px)" srcset={bannerDefaultMobile} />
-              <source media="(min-width: 800px)" srcset={loggedOutBG} />
+              <source media="(max-width: 799px)" srcSet={bannerDefaultMobile} />
+              <source media="(min-width: 800px)" srcSet={loggedOutBG} />
               <img
                 src={loggedOutBG}
                 alt="Chris standing up holding his daughter Elva"

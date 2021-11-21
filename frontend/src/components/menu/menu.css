@@ -2,6 +2,53 @@
   padding: 20px;
   background-color: #fff;
   height: 25px;
+  display: flex;
+  transition: height 0.3s ease-in-out;
+  justify-content: space-between;
+}
+#menu .main-menu {
+  display: flex;
+}
+#menu .user-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  align-items: center;
+}
+#menu .user-menu li .search {
+  width: 20px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  cursor: pointer;
+}
+.search-results {
+  margin: 0;
+  padding: 10px 0px;
+  list-style: none;
+}
+.search-bar {
+  position: fixed;
+  padding: 20px;
+  width: calc(100% - 40px);
+  top: -330px;
+  background: #fff;
+  left: 0;
+  z-index: -22;
+  transition: top 0.3s;
+}
+.search-bar input {
+  align-self: center;
+  width: 100%;
+  height: 48px;
+  border: none;
+  background: #eeeeee;
+}
+.search-bar.show {
+  top: 100px;
+}
+#menu .user-menu li a {
+  text-decoration: none;
 }
 ul.nav {
   display: none;

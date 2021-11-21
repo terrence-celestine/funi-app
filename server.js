@@ -2,6 +2,23 @@ const express = require("express"); //Line 1
 const app = express(); //Line 2
 const fs = require("fs");
 const port = process.env.PORT || 5000; //Line 3
+app.use(express.json());
+
+const all_shows_collection = [
+  { title: "JUJUTSU KAISEN", handle: "jujutsu_kaisen" },
+  { title: "Junjo Romantica", handle: "jujutsu_kaisen" },
+  { title: "Junji Ito Collection", handle: "jujutsu_kaisen" },
+  { title: "Recovery of an MMO Junkie", handle: "jujutsu_kaisen" },
+  { title: "Romeo x Juliet", handle: "jujutsu_kaisen" },
+  { title: "Junjo Romantica 3", handle: "jujutsu_kaisen" },
+  { title: "JUNI TAISEN: ZODIAC WAR", handle: "jujutsu_kaisen" },
+  { title: "Attack on Titan: Junior High", handle: "jujutsu_kaisen" },
+  { title: "Sengoku BASARA - End of Judgement", handle: "jujutsu_kaisen" },
+  {
+    title: "Bungo and Alchemist -Gears of Judgement",
+    handle: "jujutsu_kaisen",
+  },
+];
 
 const all_shows = {
   demon_slayer: {
@@ -301,7 +318,7 @@ const all_shows = {
         intro_time: 56,
         jump_time: 144,
         duration: "23:40",
-        thumbnail: "ep1.jpg",
+        thumbnail: "ep1.png",
         rating: "TV-14",
         prev_episode: false,
         next_episode: false,
@@ -358,6 +375,36 @@ app.get("/episodes/:showHandle/:episodeID/meta", (req, res) => {
     (episode) => episode.id == req.params.episodeID
   );
   return res.send(foundEpisode);
+});
+
+// search endpoint
+app.post("/search", (req, res) => {
+  const searchTerm = req.body.searchTerm.toLowerCase();
+  const capturingRegex = new RegExp(searchTerm, "g");
+  const tempArr = all_shows_collection.filter((show) =>
+    show.title.toLowerCase().match(capturingRegex)
+  );
+  return res.send(tempArr);
+});
+
+// queue endpoint
+app.post("/queue", (req, res) => {
+  const shows = req.body.data;
+  const tempArr = [];
+  for (const key in shows) {
+    const episodeID = shows[key]["episode"];
+    const foundShow = all_shows[key]["episodes"].find(
+      (episode) => episode.id == episodeID
+    );
+    foundShow["handle"] = key;
+    foundShow["duration"] = shows[key]["duration"];
+    const calculatedProgress = Math.round(
+      (shows[key]["progress"] / shows[key]["duration"]) * 100
+    );
+    foundShow["progress"] = calculatedProgress;
+    tempArr.push(foundShow);
+  }
+  return res.send(tempArr);
 });
 
 // get episode stream
