@@ -1,7 +1,7 @@
 import "./menu.css";
 import logo from "../../assets/icons/logo.svg";
 import hamburgerMenu from "../../assets/icons/mobile-menu.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Menu = ({ activeUser }) => {
   const [hovered, setHovered] = useState(false);
@@ -28,8 +28,16 @@ const Menu = ({ activeUser }) => {
         onMouseLeave={(e) => hideSubMenu(e)}
       >
         {activeUser ? (
-          <li>
+          <li className="parent">
             <a href="/">My Anime</a>
+            <ul>
+              <li>
+                <a href="/">Watch List</a>
+              </li>
+              <li>
+                <a href="/">Digital Copy</a>
+              </li>
+            </ul>
           </li>
         ) : (
           ""
@@ -38,13 +46,13 @@ const Menu = ({ activeUser }) => {
           <a href="/">Stream</a>
           <ul>
             <li>
-              <a href="#">All Titles</a>
+              <a href="/">All Titles</a>
             </li>
             <li>
-              <a href="#">Current Seasons</a>
+              <a href="/">Current Seasons</a>
             </li>
             <li>
-              <a href="#">Schedule</a>
+              <a href="/">Schedule</a>
             </li>
           </ul>
         </li>
@@ -55,10 +63,10 @@ const Menu = ({ activeUser }) => {
               <a href="/">Games</a>
             </li>
             <li>
-              <a href="#">News</a>
+              <a href="/">News</a>
             </li>
             <li>
-              <a href="#">Theatrical</a>
+              <a href="/">Theatrical</a>
             </li>
           </ul>
         </li>

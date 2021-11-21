@@ -14,25 +14,25 @@ const Footer = () => {
     <footer>
       <ul className="links">
         <li key="about">
-          <a href="#">About Funimation</a>
+          <a href="/">About Funimation</a>
         </li>
         <li key="support">
-          <a href="#">Customer Support</a>
+          <a href="/">Customer Support</a>
         </li>
         <li key="terms">
-          <a href="#">Terms of Use</a>
+          <a href="/">Terms of Use</a>
         </li>
         <li key="sales">
-          <a href="#">Terms of Sale</a>
+          <a href="/">Terms of Sale</a>
         </li>
         <li key="privacy">
-          <a href="#">Privacy Policy</a>
+          <a href="/">Privacy Policy</a>
         </li>
         <li key="do-not-sell">
-          <a href="#">Do not Sell My Personal Information</a>
+          <a href="/">Do not Sell My Personal Information</a>
         </li>
         <li key="careers">
-          <a href="#">Careers</a>
+          <a href="/">Careers</a>
         </li>
       </ul>
       <div className="right">

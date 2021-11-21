@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import "./index.css";
 
 const ShowDetails = () => {
+  const { showHandle } = useParams();
   const navigate = useNavigate();
   const launchVideoPlayer = (showHandle, episodeID) => {
     navigate(`/v/${showHandle}/${episodeID}`, { replace: false });
@@ -15,20 +16,24 @@ const ShowDetails = () => {
   const [showInfo, setShowInfo] = useState([]);
   const BannerBG = (bannerName) => {
     const image = require(`../../assets/banners/${bannerName}`);
-    return image.default;
+    if (image.default) {
+      return image.default;
+    } else {
+      return "";
+    }
   };
   const addToWatchList = (showHandle) => {
     console.log("updating user watch list");
   };
   useEffect(() => {
-    fetch("/shows/demon-slayer")
+    fetch(`/shows/${showHandle}`)
       .then((response) => response.json())
       .then((data) => {
         setShowInfo(data);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  });
   return (
     <>
       {isLoading === false ? (
@@ -54,17 +59,17 @@ const ShowDetails = () => {
                   <span className="rating">{showInfo.rating}</span>
                   <span>{showInfo.release_date}</span>
                   {showInfo.tags.map((tag) => (
-                    <span data-key={tag}>{tag}</span>
+                    <span key={tag}>{tag}</span>
                   ))}
                   {showInfo.languages.map((lang) => (
-                    <span data-key={lang}>{lang}</span>
+                    <span key={lang}>{lang}</span>
                   ))}
-                  <span>{showInfo.seasons} Seasons</span>
+                  <span key={showInfo.seasons}>{showInfo.seasons} Seasons</span>
                 </div>
                 <div className="excerpt">
                   <span>{showInfo.excerpt}</span>
                 </div>
-                <div class="button-wrapper">
+                <div className="button-wrapper">
                   <button
                     className="start-watching"
                     onClick={() => launchVideoPlayer(showInfo.handle, 1)}
@@ -99,7 +104,7 @@ const ShowDetails = () => {
                       show={showInfo.handle}
                       name={episode.thumbnail}
                     />
-                    <div class="episode-rating">{showInfo.rating}</div>
+                    <div className="episode-rating">{showInfo.rating}</div>
                   </div>
                   <span className="episode-count">Episode {episode.id}</span>
                   <span className="episode-title">{episode.title}</span>

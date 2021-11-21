@@ -12,6 +12,10 @@ import Footer from "./components/Footer";
 function App() {
   const [user, setUser] = useState(false);
 
+  useEffect(() => {
+    console.log("fetch user");
+    setUser(true);
+  }, []);
   return (
     <div className="App">
       <>
@@ -23,7 +27,7 @@ function App() {
           <Routes>
             <Route index element={<Home />}></Route>
             <Route path="shows">
-              <Route path=":showID" element={<ShowDetails />}></Route>
+              <Route path=":showHandle" element={<ShowDetails />}></Route>
               <Route index element={<ViewShows />}></Route>
             </Route>
             <Route path="v">

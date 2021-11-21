@@ -19,10 +19,6 @@ const Home = ({ user }) => {
         <h2>Fall 2021 Season</h2>
         {shows.length > 0 ? <AnimeList items={shows} /> : ""}
       </div>
-      <div className="show-category-container">
-        <h2>Funimation Exclusives</h2>
-        {shows.length > 0 ? <AnimeList items={shows} /> : ""}
-      </div>
     </>
   );
 };

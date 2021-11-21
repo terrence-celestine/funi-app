@@ -1,7 +1,7 @@
 import "./topbar.css";
 import { useEffect, useState } from "react";
 const Topbar = () => {
-  const [topBarArr, setTopBarArr] = useState([
+  const [topBarArr] = useState([
     "MY HERO ACADEMIA: THE STRONGEST HERO - SEE THE MOVIE. PLAY THE GAME. UNLOCK IN-GAME REWARDS. USE CODE: TSHWHMDEKU",
     "MY HERO ACADEMIA: WORLD HEROES' MISSION - BUY TICKETS NOW ",
   ]);
@@ -17,7 +17,7 @@ const Topbar = () => {
       }, 3000);
       return () => clearInterval(interval);
     }
-  }, []);
+  });
 
   return (
     <div id="top-bar">
