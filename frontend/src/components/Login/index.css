@@ -1,0 +1,17 @@
+#login-page {
+  background: #fff;
+  min-height: 600px;
+}
+#login-page form {
+  max-width: 640px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+#login-page form input {
+  padding: 20px;
+  margin: 0 0 15px 0;
+}
+#login-page form input[type="submit"] {
+  cursor: pointer;
+}

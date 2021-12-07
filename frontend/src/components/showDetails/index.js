@@ -29,11 +29,11 @@ const ShowDetails = () => {
     fetch(`/shows/${showHandle}`)
       .then((response) => response.json())
       .then((data) => {
-        setShowInfo(data);
+        setShowInfo(data[0]);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
-  });
+  }, [showHandle]);
   return (
     <>
       {isLoading === false ? (

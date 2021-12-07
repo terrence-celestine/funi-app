@@ -144,7 +144,11 @@ const Menu = ({ activeUser }) => {
           </li>
         </ul>
       ) : (
-        ""
+        <ul className="user-menu">
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        </ul>
       )}
       {activeUser ? (
         <div className={activeSearch ? "search-bar show" : "search-bar"}>

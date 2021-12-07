@@ -8,12 +8,12 @@ import ShowDetails from "./components/showDetails";
 import Home from "./components/Home";
 import VideoPlayer from "./components/VideoPlayer";
 import Footer from "./components/Footer";
-
+import Login from "./components/Login";
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   useEffect(() => {
-    setUser(true);
+    // setUser(true);
   }, [user]);
   return (
     <div className="App">
@@ -29,6 +29,7 @@ function App() {
               <Route path=":showHandle" element={<ShowDetails />}></Route>
               <Route index element={<ViewShows />}></Route>
             </Route>
+            <Route path="/login" element={<Login />} />
             <Route path="v">
               <Route
                 path=":showHandle/:episodeID"

@@ -6,13 +6,9 @@ import { useState, useEffect } from "react";
 import "./index.css";
 
 const Home = ({ user }) => {
-  const [shows, setShows] = useState([]);
   const [queue, setQueue] = useState({});
 
   useEffect(() => {
-    fetch("/all_shows")
-      .then((response) => response.json())
-      .then((data) => setShows(() => [...data.videos]));
     if (user) {
       const episode_progress = localStorage.getItem("episode_progress");
       if (episode_progress) {
@@ -20,7 +16,7 @@ const Home = ({ user }) => {
         setQueue(lastSeenShows);
       }
     }
-  }, []);
+  }, [user]);
 
   return (
     <>
@@ -30,7 +26,7 @@ const Home = ({ user }) => {
       </div>
       <div className="show-category-container">
         <h2>Fall 2021 Season</h2>
-        {shows.length > 0 ? <AnimeList items={shows} /> : ""}
+        <AnimeList />
       </div>
     </>
   );

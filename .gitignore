@@ -2,3 +2,4 @@
 /episodes
 /frontend/node_modules
 /audio
+.env
