@@ -5,7 +5,7 @@ import searchIcon from "../../assets/icons/search.png";
 
 import { useState, useEffect, useRef } from "react";
 
-const Menu = ({ activeUser }) => {
+const Menu = ({ activeUser, logOutUser }) => {
   const [hovered, setHovered] = useState(false);
   const [activeSearch, setActiveSearch] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -141,6 +141,11 @@ const Menu = ({ activeUser }) => {
               src={searchIcon}
               alt="search icon"
             />
+          </li>
+          <li>
+            <a href="#" onClick={() => logOutUser()}>
+              Log Out
+            </a>
           </li>
         </ul>
       ) : (

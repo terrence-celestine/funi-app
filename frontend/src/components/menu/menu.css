@@ -13,7 +13,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  align-items: center;
+  display: flex;
 }
 #menu .user-menu li .search {
   width: 20px;

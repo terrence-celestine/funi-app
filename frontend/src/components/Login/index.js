@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./index.css";
+import { useNavigate } from "react-router-dom";
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -10,14 +12,11 @@ export default class Login extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.username);
-    console.log(this.state.password);
     const username = this.state.username;
     const password = this.state.password;
     if (username.length == 0 || password.length == 0) {
       console.log("show error here");
     } else {
-      console.log("look up user in database");
       this.loginUser();
     }
   }
@@ -28,7 +27,6 @@ export default class Login extends Component {
     });
   }
   loginUser() {
-    console.log("logging in user");
     const data = {
       username: this.state.username,
       password: this.state.password,
@@ -43,9 +41,9 @@ export default class Login extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.user);
-        if (data.user == true) {
-          console.log("found user give them a token");
+        if (data.user) {
+          this.props.setToken(data.user);
+          window.location = "/";
         } else {
           console.log("user not found throw error");
         }
@@ -57,6 +55,7 @@ export default class Login extends Component {
   render() {
     return (
       <div id="login-page">
+        <h2>Sign In</h2>
         <form onSubmit={(e) => this.handleSubmit(e)}>
           <input
             type="text"
@@ -66,7 +65,7 @@ export default class Login extends Component {
           />
           <input
             type="password"
-            placeholder="oassword"
+            placeholder="password"
             name="password"
             onChange={(e) => this.handleInputChange(e)}
           />

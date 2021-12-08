@@ -22,22 +22,6 @@ const connection = mongoose.connect(
   }
 );
 
-const all_shows_collection = [
-  { title: "JUJUTSU KAISEN", handle: "jujutsu_kaisen" },
-  { title: "Junjo Romantica", handle: "jujutsu_kaisen" },
-  { title: "Junji Ito Collection", handle: "jujutsu_kaisen" },
-  { title: "Recovery of an MMO Junkie", handle: "jujutsu_kaisen" },
-  { title: "Romeo x Juliet", handle: "jujutsu_kaisen" },
-  { title: "Junjo Romantica 3", handle: "jujutsu_kaisen" },
-  { title: "JUNI TAISEN: ZODIAC WAR", handle: "jujutsu_kaisen" },
-  { title: "Attack on Titan: Junior High", handle: "jujutsu_kaisen" },
-  { title: "Sengoku BASARA - End of Judgement", handle: "jujutsu_kaisen" },
-  {
-    title: "Bungo and Alchemist -Gears of Judgement",
-    handle: "jujutsu_kaisen",
-  },
-];
-
 // get subtitle track
 app.get("/subtitles/:showHandle/:episodeID", (req, res) => {
   res.sendFile(
@@ -114,7 +98,7 @@ app.post("/login", async (req, res) => {
   } else {
     const match = await bcrypt.compare(req.body.password, result.password);
     if (match) {
-      res.send({ user: true });
+      res.send({ user: result.username });
     } else {
       res.send({ user: false });
     }

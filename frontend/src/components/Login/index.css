@@ -14,4 +14,9 @@
 }
 #login-page form input[type="submit"] {
   cursor: pointer;
+  border: none;
+}
+#login-page h2 {
+  text-align: center;
+  color: #000;
 }
